@@ -18,23 +18,21 @@ const fakeListValues = [
   "0ab",
 ];
 
-const TestRow = ({ toggleHighlight, highlights }) => {
-  return (
-    <div className="flex p-4 border border-green-300 my-2">
-      {fakeListValues.map((item) => (
-        <span
-          key={item}
-          className={`${
-            highlights.includes(item) ? "bg-green-100" : ""
-          } block px-2 py-1 cursor-pointer border border-green-600 rounded mx-1`}
-          onClick={() => toggleHighlight(item)}
-        >
-          {item}
-        </span>
-      ))}
-    </div>
-  );
-};
+const TestRow = ({ toggleHighlight, highlights }) => (
+  <div className="flex p-4 border border-green-300 my-2">
+    {fakeListValues.map((item) => (
+      <span
+        key={item}
+        className={`${
+          highlights.includes(item) ? "bg-green-100" : ""
+        } block px-2 py-1 cursor-pointer border border-green-600 rounded mx-1`}
+        onClick={() => toggleHighlight(item)}
+      >
+        {item}
+      </span>
+    ))}
+  </div>
+);
 
 export default function Page() {
   const [highlights, setHighlights] = useState([]);
@@ -52,7 +50,7 @@ export default function Page() {
     }
   };
 
-  return [...Array(250)].map((item, idx) => (
+  return [...Array(250)].map((_item, idx) => (
     <TestRow
       key={idx}
       toggleHighlight={toggleHighlight}
